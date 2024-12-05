@@ -62,14 +62,34 @@ public class GestionFacturesController {
     @FXML
     private void supprimerFacture() {
 
-        chargerVue("/Vues/SupprimerFacture.fxml", "Supprimer une Facture");
+       
     }
 
     // Afficher les factures
     @FXML
     private void afficherFactures() {
-        chargerVue("/Vues/AfficherFactures.fxml", "Afficher les Factures");
-    }
+ try {
+            // Vérification de l'existence du fichier FXML
+            URL fxmlLocation = getClass().getResource("/Vues/AfficherFactures.fxml");
+            if (fxmlLocation == null) {
+                System.out.println("FXML file not found!");
+                showAlert("Erreur", "Le fichier FXML 'AjouterFacture.fxml' n'a pas été trouvé.");
+                return;  // Sortir de la méthode si le fichier FXML n'est pas trouvé
+            } else {
+                System.out.println("FXML file loaded successfully.");
+            }
+
+            // Charger le fichier FXML
+            FXMLLoader loader = new FXMLLoader(fxmlLocation);
+            Scene scene = new Scene(loader.load());
+            Stage stage = new Stage();
+            stage.setTitle("Ajouter une facture");
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();  // Afficher la pile des erreurs
+            showAlert("Erreur", "Impossible de charger la page 'Ajouter Facture'.");
+        }    }
 
     // Retourner au menu principal
     @FXML

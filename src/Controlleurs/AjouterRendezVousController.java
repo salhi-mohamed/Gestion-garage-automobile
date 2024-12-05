@@ -39,9 +39,63 @@ public class AjouterRendezVousController {
             throw new IllegalStateException("Aucun réceptionniste connecté trouvé !");
         }
 
+        // Charger les clients dans le ComboBox et afficher le nom et prénom uniquement
         comboClients.getItems().setAll(receptionnisteConnecte.get_liste_clients());
+
+        // Utiliser un CellFactory pour afficher le nom et prénom du client
+        comboClients.setCellFactory(param -> new javafx.scene.control.ListCell<Client>() {
+            @Override
+            protected void updateItem(Client item, boolean empty) {
+                super.updateItem(item, empty);
+                if (item == null || empty) {
+                    setText(null);
+                } else {
+                    setText(item.get_nom() + " " + item.get_prenom()); // Affiche le nom et prénom
+                }
+            }
+        });
+
+        comboClients.setButtonCell(new javafx.scene.control.ListCell<Client>() {
+            @Override
+            protected void updateItem(Client item, boolean empty) {
+                super.updateItem(item, empty);
+                if (item == null || empty) {
+                    setText(null);
+                } else {
+                    setText(item.get_nom() + " " + item.get_prenom());
+                }
+            }
+        });
+
+        // Charger les voitures dans le ComboBox et afficher la Marque et l'Immatriculation
         comboVoitures.getItems().setAll(receptionnisteConnecte.getListeVoitures());
 
+        // Utiliser un CellFactory pour afficher la Marque et l'Immatriculation de la voiture
+        comboVoitures.setCellFactory(param -> new javafx.scene.control.ListCell<Voiture>() {
+            @Override
+            protected void updateItem(Voiture item, boolean empty) {
+                super.updateItem(item, empty);
+                if (item == null || empty) {
+                    setText(null);
+                } else {
+                    setText(item.getMarque() + " - " + item.getImmatriculation()); // Affiche la Marque et l'Immatriculation
+                }
+            }
+        });
+
+        comboVoitures.setButtonCell(new javafx.scene.control.ListCell<Voiture>() {
+            @Override
+            protected void updateItem(Voiture item, boolean empty) {
+                super.updateItem(item, empty);
+                if (item == null || empty) {
+                    setText(null);
+                } else {
+                    setText(item.getMarque() + " - " + item.getImmatriculation()); // Affiche la Marque et l'Immatriculation
+                }
+            }
+        });
+
+        // Charger les statuts dans le ComboBox
         statutComboBox.setItems(FXCollections.observableArrayList("CONFIRME", "EN_ATTENTE", "ANNULE"));
     }
 
@@ -69,7 +123,6 @@ public class AjouterRendezVousController {
             showAlert("Erreur", "Une erreur est survenue lors de l'ajout du rendez-vous : " + e.getMessage());
         }
     }
-
 
     private void showAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);

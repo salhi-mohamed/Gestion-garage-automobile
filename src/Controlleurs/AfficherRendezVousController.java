@@ -24,7 +24,6 @@ public class AfficherRendezVousController {
     private TableColumn<Rendez_vous, String> colVoiture;
     @FXML
     private TableColumn<Rendez_vous, String> colDate;
-
     @FXML
     private TableColumn<Rendez_vous, String> colDescription;
     @FXML
@@ -38,15 +37,30 @@ public class AfficherRendezVousController {
     @FXML
     public void initialize() {
         // Initialisation des colonnes de la table
-        colClient.setCellValueFactory(new PropertyValueFactory<>("client"));
-        colVoiture.setCellValueFactory(new PropertyValueFactory<>("voiture"));
+
+        // Colonne pour afficher le client (nom et prénom)
+        colClient.setCellValueFactory(cellData -> {
+            Client client = cellData.getValue().getClient();  // Récupère l'objet client
+            return new javafx.beans.property.SimpleStringProperty(client.get_nom() + " " + client.get_prenom());  // Affiche le nom et prénom
+        });
+
+        // Colonne pour afficher la voiture (immatriculation)
+        colVoiture.setCellValueFactory(cellData -> {
+            Voiture voiture = cellData.getValue().getVoiture();  // Récupère l'objet voiture
+            return new javafx.beans.property.SimpleStringProperty(voiture.getImmatriculation());  // Affiche l'immatriculation
+        });
+
+        // Colonne pour afficher la date au format yyyy-MM-dd
         colDate.setCellValueFactory(cellData -> {
-            // Convertir LocalDate en String
             return new javafx.beans.property.SimpleStringProperty(
-                    cellData.getValue().getDate_rendez_vous().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
+                cellData.getValue().getDate_rendez_vous().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
             );
         });
+
+        // Colonne pour afficher la description du rendez-vous
         colDescription.setCellValueFactory(new PropertyValueFactory<>("Description_rendez_vous"));
+
+        // Colonne pour afficher le statut du rendez-vous
         colStatut.setCellValueFactory(new PropertyValueFactory<>("statut"));
 
         // Récupérer les rendez-vous à afficher
@@ -60,7 +74,7 @@ public class AfficherRendezVousController {
             alert.showAndWait();
         } else {
             // Ajouter les rendez-vous dans le tableau
-            tableViewRendezVous.getItems().addAll(listeRendezVous);
+            tableViewRendezVous.getItems().setAll(listeRendezVous); // Utiliser setAll pour éviter d'ajouter plusieurs fois
         }
     }
 

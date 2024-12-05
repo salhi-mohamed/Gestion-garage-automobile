@@ -121,6 +121,8 @@ public class GestionRendezVousController {
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
+                        e.printStackTrace();  // Afficher la pile des erreurs
+
             showAlert("Erreur", "Impossible de charger la page 'AfficherRendezVous'.");
         }     }
 
