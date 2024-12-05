@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="Controlleurs.ModifierFactureController"
+      stylesheets="@ModifierStyles.css"
+      spacing="20" alignment="CENTER" style="-fx-padding: 20;">
+    <Label text="Liste des Factures - Modification" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+
+    <TableView fx:id="tableViewFactures" style="-fx-pref-height: 300;">
+        <columns>
+            <TableColumn fx:id="columnId" text="ID Facture" />
+            <TableColumn fx:id="columnClient" text="Client" />
+            <TableColumn fx:id="columnDate" text="Date" />
+            <TableColumn fx:id="columnMontant" text="Montant" />
+            <TableColumn fx:id="columnStatut" text="Statut" />
+        </columns>
+    </TableView>
+
+    <HBox spacing="20" alignment="CENTER">
+        <Button text="Modifier la Facture" fx:id="buttonModifier" onAction="#ouvrirFormulaireModification" />
+    </HBox>
+</VBox>

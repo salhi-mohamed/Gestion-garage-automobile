@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<VBox spacing="10" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlleurs.AjouterEmployeAuChefController" 
+      style="-fx-background-color: #f5f5f5; -fx-padding: 20px; -fx-alignment: center;">
+    
+    <Label text="Sélectionner un chef" 
+           style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #333333;"/>
+    
+    <ComboBox fx:id="chefComboBox" prefWidth="200" 
+              style="-fx-font-size: 14px; -fx-padding: 5px; -fx-background-color: #ffffff; -fx-border-radius: 5px; 
+                     -fx-border-color: #cccccc; -fx-border-width: 1px;"/>
+
+    <Label text="Sélectionner un employé" 
+           style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #333333;"/>
+    
+    <TableView fx:id="employeTableView" prefHeight="200" prefWidth="400" 
+               style="-fx-background-color: #ffffff; -fx-border-color: #cccccc; -fx-border-width: 1px; 
+                      -fx-border-radius: 5px; -fx-font-size: 14px;">
+        <columns>
+            <TableColumn fx:id="colNom" text="Nom" prefWidth="150"/>
+            <TableColumn fx:id="colPrenom" text="Prénom" prefWidth="150"/>
+            <TableColumn fx:id="roleColumn" text="Rôle" prefWidth="100"/>
+        </columns>
+    </TableView>
+
+    <Button text="Ajouter employé au chef" onAction="#ajouterEmployeAuChef" 
+            style="-fx-background-color: #009688; -fx-text-fill: #ffffff; -fx-font-size: 14px; 
+                   -fx-font-weight: bold; -fx-padding: 10px 20px; -fx-border-radius: 5px; -fx-cursor: hand;"/>
+</VBox>

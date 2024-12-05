@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" spacing="10" stylesheets="@styles.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.12" fx:controller="Controlleurs.AfficherFactureController">
+    <Label text="Liste des Factures" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+    <TableView fx:id="tableViewFactures" prefHeight="300" prefWidth="600">
+        <columns>
+            <TableColumn fx:id="colNumeroFacture" text="Numéro de Facture" prefWidth="100" />
+            <TableColumn fx:id="colClient" text="Client (Nom &amp; Prénom)" prefWidth="200" />
+            <TableColumn fx:id="colDateFacture" text="Date de Facture" prefWidth="150" />
+            <TableColumn fx:id="colMontantTotal" text="Montant Total" prefWidth="100" />
+            <TableColumn fx:id="colAvecRemise" text="Remise" prefWidth="80" />
+        </columns>
+    </TableView>
+    <Button onAction="#retour" text="Retour" />
+</VBox>

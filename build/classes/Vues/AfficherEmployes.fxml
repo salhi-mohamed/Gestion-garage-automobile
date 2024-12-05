@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="Controlleurs.AfficherEmployesController" spacing="10" alignment="CENTER" style="-fx-padding: 20px;">
+    <!-- TableView pour afficher les employés -->
+    <TableView fx:id="tableEmployes" prefHeight="300" prefWidth="600" onMouseClicked="#onEmployeSelected">
+        <columns>
+            <TableColumn fx:id="colID" text="ID" />
+            <TableColumn fx:id="colNom" text="Nom" />
+            <TableColumn fx:id="colPrenom" text="Prénom" />
+            <TableColumn fx:id="colType" text="Type" />
+            <TableColumn fx:id="colSpecialite" text="Spécialité" />
+            <TableColumn fx:id="colExpertise" text="Expertise" />
+            <TableColumn fx:id="colSalaire" text="Salaire" />
+            <TableColumn fx:id="colActions" text="Actions" />
+        </columns>
+    </TableView>
+
+    <!-- TableView pour afficher les voitures associées à un employé -->
+    <Label text="Voitures associées:" />
+    <TableView fx:id="tableVoitures" prefHeight="200" prefWidth="600">
+        <columns>
+            <TableColumn fx:id="colModele" text="Modèle" />
+            <TableColumn fx:id="colMarque" text="Marque" />
+            <TableColumn fx:id="colImmatriculation" text="Immatriculation" />
+        </columns>
+    </TableView>
+
+    <!-- TableView pour afficher l'équipe du chef -->
+    <Label text="Équipe du Chef:" />
+    <TableView fx:id="tableEquipe" prefHeight="200" prefWidth="600">
+        <columns>
+            <TableColumn fx:id="colEquipeNom" text="Nom" />
+            <TableColumn fx:id="colEquipePrenom" text="Prénom" />
+            <TableColumn fx:id="colEquipeRole" text="Rôle" />
+        </columns>
+    </TableView>
+</VBox>

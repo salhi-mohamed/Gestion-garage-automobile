@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="Controlleurs.ModifierFournitureController"
+      stylesheets="@ModifierStyles.css"
+      spacing="20" alignment="CENTER" style="-fx-padding: 20;">
+    <Label text="Liste des Fournitures - Modification" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+
+    <TableView fx:id="tableViewFournitures" style="-fx-pref-height: 300;">
+        <columns>
+            <TableColumn fx:id="columnNom" text="Nom" />
+            <TableColumn fx:id="columnCategorie" text="Catégorie" />
+            <TableColumn fx:id="columnPrix" text="Prix" />
+            <TableColumn fx:id="columnQuantite" text="Quantité" />
+        </columns>
+    </TableView>
+
+    <HBox spacing="20" alignment="CENTER">
+        <Button text="Modifier la Fourniture" fx:id="buttonModifier" onAction="#ouvrirFormulaireModification" />
+    </HBox>
+</VBox>

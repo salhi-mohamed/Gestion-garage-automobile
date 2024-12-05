@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="Controlleurs.AjouterClientController" spacing="10" alignment="CENTER" style="-fx-padding: 20px;">
+    <Label text="Ajouter un nouveau client" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+
+    <Label text="Nom:"/>
+    <TextField fx:id="nomField" promptText="Entrez le nom"/>
+
+    <Label text="Prénom:"/>
+    <TextField fx:id="prenomField" promptText="Entrez le prénom"/>
+
+    <Label text="Téléphone:"/>
+    <TextField fx:id="telephoneField" promptText="Entrez le téléphone"/>
+
+    <Label text="Adresse:"/>
+    <TextField fx:id="adresseField" promptText="Entrez l'adresse"/>
+
+    <Label text="Statut Financier:"/>
+    <TextField fx:id="statutField" promptText="Entrez le statut financier"/>
+
+    <Button text="Ajouter Client" onAction="#ajouterClient" style="-fx-font-size: 18px; -fx-padding: 10px 20px; -fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+</VBox>
+

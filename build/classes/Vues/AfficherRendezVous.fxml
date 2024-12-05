@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="Controlleurs.AfficherRendezVousController" spacing="10">
+    <Label text="Liste des Rendez-vous"/>
+
+    <TableView fx:id="tableViewRendezVous">
+        <columns>
+            <TableColumn fx:id="colClient" text="Client" prefWidth="200" />
+            <TableColumn fx:id="colVoiture" text="Voiture" prefWidth="150" />
+            <TableColumn fx:id="colDate" text="Date" prefWidth="150" />
+            <TableColumn fx:id="colDescription" text="Description" prefWidth="200" />
+            <TableColumn fx:id="colStatut" text="Statut" prefWidth="100" />
+        </columns>
+    </TableView>
+
+    <!-- Bouton Fermer avec couleur rouge, taille réduite, et déplacement vers le haut -->
+    <Button text="Fermer" onAction="#fermer" style="
+    -fx-background-color: #F44336;  /* Couleur rouge */
+    -fx-text-fill: white; 
+    -fx-font-size: 12px;  /* Taille réduite */
+    -fx-padding: 8px 16px;  /* Espacement interne réduit */
+    -fx-border-radius: 5px; 
+    -fx-background-radius: 5px; 
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0.0, 0, 2); 
+    -fx-transition: background-color 0.3s ease;" />
+
+    <!-- Ajout de marges manuelles pour déplacer le bouton vers le haut -->
+    <VBox.margin>
+        <Insets top="20" />
+    </VBox.margin>
+</VBox>

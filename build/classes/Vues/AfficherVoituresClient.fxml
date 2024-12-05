@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="Controlleurs.AfficherVoituresClientController" spacing="10" alignment="CENTER" style="-fx-padding: 20px;">
+    <TableView fx:id="tableVoitures" prefHeight="300" prefWidth="500">
+        <columns>
+            <TableColumn fx:id="colMarque" text="Marque" />
+            <TableColumn fx:id="colModele" text="Modèle" />
+            <TableColumn fx:id="colAnnee" text="Année" />
+            <TableColumn fx:id="colKilometrage" text="Kilométrage" />
+            <TableColumn fx:id="colImmatriculation" text="Immatriculation" />
+        </columns>
+    </TableView>
+</VBox>

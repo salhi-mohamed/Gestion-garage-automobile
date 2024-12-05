@@ -1,0 +1,38 @@
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="Controlleurs.AjouterServiceController"
+      spacing="10" alignment="CENTER" stylesheets="@AjouterServiceStyle.css" style="-fx-padding: 20;">
+    <Label text="Ajouter un Service" styleClass="title-label"/>
+
+    <GridPane hgap="10" vgap="10">
+        <Label text="Rendez-vous:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="rendezVousComboBox" GridPane.rowIndex="0" GridPane.columnIndex="1" styleClass="combo-box"/>
+
+        <Label text="Type de service:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="serviceTypeComboBox" GridPane.rowIndex="1" GridPane.columnIndex="1" styleClass="combo-box"/>
+
+
+
+        <Label text="Pièces de rechange:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="pieceRechangeComboBox" GridPane.rowIndex="3" GridPane.columnIndex="1" styleClass="combo-box"/>
+
+        <Label text="Employés:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="employeComboBox" GridPane.rowIndex="4" GridPane.columnIndex="1" styleClass="combo-box"/>
+
+        <Label text="Description:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+        <TextField fx:id="descriptionField" GridPane.rowIndex="5" GridPane.columnIndex="1" styleClass="text-field"/>
+
+        <Label text="Coût:" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+        <TextField fx:id="coutField" GridPane.rowIndex="6" GridPane.columnIndex="1" styleClass="text-field"/>
+    </GridPane>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Ajouter" onAction="#handleAjouter" styleClass="button"/>
+        <Button text="Annuler" onAction="#handleAnnuler" styleClass="button"/>
+    </HBox>
+</VBox>

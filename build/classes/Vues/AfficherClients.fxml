@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ComboBox?> <!-- Ajout de l'importation de ComboBox -->
+<?import javafx.scene.control.Button?> <!-- Importation du bouton -->
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="Controlleurs.AfficherClientsController" spacing="10" alignment="CENTER" style="-fx-padding: 20px;">
+    <!-- TableView pour afficher les clients -->
+    <TableView fx:id="tableClients" prefHeight="300" prefWidth="800" onMouseClicked="#onClientSelected">
+        <columns>
+            <TableColumn fx:id="colID" text="ID" prefWidth="50" />
+            <TableColumn fx:id="colNom" text="Nom" prefWidth="150" />
+            <TableColumn fx:id="colPrenom" text="Prénom" prefWidth="150" />
+            <TableColumn fx:id="colTelephone" text="Téléphone" prefWidth="100" />
+            <TableColumn fx:id="colAdresse" text="Adresse" prefWidth="200" />
+            <TableColumn fx:id="colActions" text="Actions" prefWidth="150" />
+        </columns>
+    </TableView>
+
+    <!-- ComboBox pour changer l'affichage entre Voitures et Fournitures, caché initialement -->
+    <ComboBox fx:id="comboBoxAffichage" prefWidth="200" visible="false"/>
+
+    <!-- Container pour afficher la TableView de Voitures ou Fournitures -->
+    <VBox fx:id="containerTableView" spacing="10" alignment="CENTER"/>
+
+    <!-- Bouton Annuler pour revenir à la table des clients -->
+    <Button fx:id="btnAnnuler" text="Annuler" onAction="#handleAnnuler" style="-fx-background-color: #f44336; -fx-text-fill: white;" visible="false"/>
+</VBox>

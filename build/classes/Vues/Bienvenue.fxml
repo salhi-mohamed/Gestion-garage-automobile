@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<StackPane prefHeight="879.0" prefWidth="1237.0" stylesheets="@BienvenueStyle.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlleurs.BienvenueController">
+ <ImageView fx:id="backgroundImage" fitWidth="1237.0" fitHeight="879.0">
+        <image>
+            <Image url="@../Images/background.png"/>
+        </image>
+    </ImageView>
+    <!-- Image de fond -->
+
+    <!-- Contenu principal -->
+    <VBox alignment="CENTER" spacing="30">
+        <!-- Logo -->
+
+        <!-- Texte de bienvenue -->
+        <Text fx:id="bienvenueText" styleClass="welcome-text" text="Bienvenue dans l'Application AutoMécano" wrappingWidth="852.75" />
+
+        <!-- Ligne décorative -->
+        <Line endX="600" startX="0" styleClass="line" />
+
+        <!-- Texte secondaire -->
+        <Text fx:id="subText" styleClass="sub-text" text="Simplifiez la gestion de votre garage avec AutoMécano." />
+
+        <!-- Bouton "Commencer" -->
+        <Button fx:id="startButton" onAction="#commencer" styleClass="start-button" text="Commencer" />
+    </VBox>
+</StackPane>

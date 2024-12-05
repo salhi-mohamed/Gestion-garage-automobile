@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.input.KeyEvent?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlleurs.SupprimerEmployeController">
+    <!-- ComboBox for selecting employee type -->
+    <ComboBox fx:id="typeEmployeCombo" layoutX="20" layoutY="20" prefWidth="200" />
+
+    <!-- TableView to display the employees -->
+    <TableView fx:id="tableViewEmployes" layoutX="20" layoutY="60" prefWidth="550" prefHeight="300">
+        <columns>
+            <TableColumn fx:id="columnNom" text="Nom" prefWidth="100" />
+            <TableColumn fx:id="columnPrenom" text="Prénom" prefWidth="100" />
+            <TableColumn fx:id="columnTelephone" text="Téléphone" prefWidth="100" />
+            <TableColumn fx:id="columnAdresse" text="Adresse" prefWidth="150" />
+            <TableColumn fx:id="columnSalaire" text="Salaire" prefWidth="100" />
+        </columns>
+    </TableView>
+
+    <!-- Button to delete the selected employee -->
+    <Button fx:id="buttonSupprimer" text="Supprimer l'employé" layoutX="20" layoutY="380" onAction="#supprimerEmploye" />
+
+    <!-- Optional: Add a label or message -->
+    <Label text="Sélectionnez un type d'employé et supprimez-le." layoutX="240" layoutY="20" />
+</AnchorPane>

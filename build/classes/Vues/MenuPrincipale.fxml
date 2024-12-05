@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Text?>
+
+<StackPane prefHeight="879.0" prefWidth="1237.0" stylesheets="@Menu.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlleurs.MenuPrincipaleController">
+
+    <!-- Image de fond -->
+    <ImageView fx:id="backgroundImage" fitHeight="879.0" fitWidth="1237.0">
+        <image>
+            <Image url="@../Images/background.png" />
+        </image>
+    </ImageView>
+
+    <!-- Conteneur principal avec un StackPane pour le titre en haut -->
+    <StackPane alignment="TOP_CENTER">
+        <!-- Titre du menu avec un style modifié et plus foncé -->
+        <Text styleClass="menu-title" text="Menu Principal" wrappingWidth="266.79383850097656" GridPane.columnSpan="2" translateY="70" />
+   
+       <!-- Conteneur des boutons avec GridPane -->
+       <GridPane alignment="CENTER" hgap="30" style="-fx-background-color: rgba(236, 240, 241, 0.5); -fx-padding: 20px;" vgap="30">
+   
+           <!-- Première ligne de boutons -->
+           <Button fx:id="btnClients" maxWidth="250" minWidth="250" onAction="#ouvrirClients" styleClass="menu-button" text="Gestion des Clients" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+   
+           <Button fx:id="btnVoitures" maxWidth="250" minWidth="250" onAction="#ouvrirVoitures" styleClass="menu-button" text="Gestion des Voitures" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+   
+           <!-- Deuxième ligne de boutons -->
+           <Button fx:id="btnEmployes" maxWidth="250" minWidth="250" onAction="#ouvrirEmployes" styleClass="menu-button" text="Gestion des Employés" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+   
+           <Button fx:id="btnRendezVous" maxWidth="250" minWidth="250" onAction="#ouvrirRendezVous" styleClass="menu-button" text="Gestion des Rendez-vous" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+   
+           <!-- Troisième ligne de boutons -->
+           <Button fx:id="btnFactures" maxWidth="250" minWidth="250" onAction="#ouvrirFactures" styleClass="menu-button" text="Gestion des Factures" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+   
+           <Button fx:id="btnServices" maxWidth="250" minWidth="250" onAction="#ouvrirServices" styleClass="menu-button" text="Gestion des Services" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+   
+           <Button fx:id="btnStock" maxWidth="250" minWidth="250" onAction="#ouvrirStock" styleClass="menu-button" text="Gestion du Stock" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+         <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+   
+       </GridPane>
+    </StackPane>
+</StackPane>

@@ -1,0 +1,51 @@
+/* Style général de la fenêtre */
+.root {
+    -fx-background-color: #f4f4f9; /* Couleur de fond douce et moderne */
+    -fx-padding: 20px;
+    -fx-font-family: "Arial", sans-serif;
+}
+
+/* Labels */
+.label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333; /* Couleur foncée pour les labels */
+    -fx-padding: 5px 0 5px 0;
+}
+
+/* Champs de texte */
+.text-field {
+    -fx-background-color: #ffffff; /* Fond blanc pour les champs de texte */
+    -fx-border-radius: 5px;  /* Coins arrondis */
+    -fx-border-color: #cccccc; /* Bordure grise claire */
+    -fx-border-width: 1px;
+    -fx-padding: 8px;
+    -fx-font-size: 14px;
+    -fx-focus-color: #66aaff; /* Couleur de surbrillance lors du focus */
+}
+
+/* Boutons */
+.button {
+    -fx-background-color: #4CAF50; /* Vert moderne pour le bouton Sauvegarder */
+    -fx-text-fill: white; /* Texte en blanc */
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 20px;
+    -fx-border-radius: 5px;  /* Coins arrondis */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 0, 2); /* Ombre portée subtile */
+    -fx-cursor: hand; /* Changement de curseur */
+}
+
+.button:hover {
+    -fx-background-color: #45a049; /* Vert plus foncé au survol */
+}
+
+/* Bouton Annuler */
+.button.cancel {
+    -fx-background-color: #f44336; /* Rouge pour Annuler */
+    -fx-border-color: #e53935;
+}
+
+.button.cancel:hover {
+    -fx-background-color: #e53935; /* Rouge plus foncé au survol */
+}

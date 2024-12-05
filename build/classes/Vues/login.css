@@ -1,0 +1,98 @@
+/* login.css */
+
+/* Corps de la page */
+body {
+  background-color: #f4f4f4;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* Style général pour les éléments interactifs */
+.text-field, .password-field, .button, .hyperlink {
+  cursor: pointer;
+}
+
+/* Section de gauche : Image et branding */
+.stack-pane-left {
+  background-color: linear-gradient(to top, #1d3557, #457b9d);
+  padding: 20px;
+}
+
+.stack-pane-left .logo {
+  height: 200px;
+  width: 200px;
+  object-fit: contain;
+}
+
+.stack-pane-left .welcome-text {
+  font-size: 24px;
+  font-weight: bold;
+  color: #f1faee;
+  text-shadow: 0px 3px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Section de droite : Formulaire */
+.form-container {
+  background-color: #f8f9fa;
+  padding: 40px;
+  border-radius: 0 12px 12px 0;
+}
+
+.form-container .title {
+  font-size: 30px;
+  font-weight: bold;
+  color: #1d3557;
+}
+
+/* Champs de texte (Email, Mot de passe) */
+.text-field, .password-field {
+  width: 300px;
+  padding: 12px 16px;
+  font-size: 14px;
+  border-radius: 30px;
+  background-color: #ffffff;
+  border: 1px solid #ced4da;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+.text-field:hover, .password-field:hover {
+  border-color: #457b9d;
+}
+
+.text-field:focused, .password-field:focused {
+  border-color: #1d3557;
+  background-color: #f1f5f9;
+}
+
+/* Bouton de connexion */
+.button {
+  font-size: 16px;
+  padding: 12px 0;
+  width: 300px;
+  background-color: linear-gradient(to bottom, #457b9d, #1d3557);
+  color: white;
+  border-radius: 30px;
+  text-align: center;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.button:hover {
+  background-color: linear-gradient(to bottom, #1d3557, #457b9d);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.button:pressed {
+  background-color: #1a3a57;
+}
+
+/* Lien "Mot de passe oublié ?" */
+.hyperlink {
+  font-size: 14px;
+  color: #457b9d;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.hyperlink:hover {
+  color: #1d3557;
+}

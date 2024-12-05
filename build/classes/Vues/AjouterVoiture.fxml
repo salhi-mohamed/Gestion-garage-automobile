@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="Controlleurs.AjouterVoitureController" style="-fx-background-color: #f5f5f5; -fx-padding: 20px; -fx-font-family: 'Segoe UI', sans-serif;">
+    <!-- Titre de la fenêtre -->
+    <Label text="Ajouter une nouvelle voiture" style="-fx-font-size: 18; -fx-font-weight: bold; -fx-text-fill: #333;" layoutX="200" layoutY="10"/>
+
+    <!-- TableView des clients -->
+    <TableView fx:id="clientsTable" layoutX="10" layoutY="50" prefHeight="200" prefWidth="580" onMouseClicked="#onClientSelected"
+               style="-fx-background-color: #ffffff; -fx-border-color: #ddd; -fx-border-width: 1px; -fx-font-size: 13px; -fx-font-family: 'Segoe UI', sans-serif;">
+        <columns>
+            <TableColumn fx:id="idClientColumn" text="ID Client" style="-fx-alignment: center;"/>
+            <TableColumn fx:id="nomClientColumn" text="Nom Client" style="-fx-alignment: center;"/>
+            <TableColumn fx:id="prenomClientColumn" text="Prénom Client" style="-fx-alignment: center;"/>
+        </columns>
+    </TableView>
+
+    <!-- Formulaire pour saisir les informations de la voiture -->
+    <Label text="Marque:" layoutX="10" layoutY="270" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #333;"/>
+    <TextField fx:id="marqueField" promptText="Entrez la marque" layoutX="150" layoutY="265" prefWidth="200"
+               style="-fx-background-color: #ffffff; -fx-border-color: #ccc; -fx-border-radius: 5px; -fx-padding: 10px; -fx-font-size: 14px;"/>
+
+    <Label text="Modèle:" layoutX="10" layoutY="310" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #333;"/>
+    <TextField fx:id="modeleField" promptText="Entrez le modèle" layoutX="150" layoutY="305" prefWidth="200"
+               style="-fx-background-color: #ffffff; -fx-border-color: #ccc; -fx-border-radius: 5px; -fx-padding: 10px; -fx-font-size: 14px;"/>
+
+    <Label text="Année:" layoutX="10" layoutY="350" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #333;"/>
+    <TextField fx:id="anneeField" promptText="Entrez l'année" layoutX="150" layoutY="345" prefWidth="200"
+               style="-fx-background-color: #ffffff; -fx-border-color: #ccc; -fx-border-radius: 5px; -fx-padding: 10px; -fx-font-size: 14px;"/>
+
+    <Label text="Kilométrage:" layoutX="10" layoutY="390" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #333;"/>
+    <TextField fx:id="kilometrageField" promptText="Entrez le kilométrage" layoutX="150" layoutY="385" prefWidth="200"
+               style="-fx-background-color: #ffffff; -fx-border-color: #ccc; -fx-border-radius: 5px; -fx-padding: 10px; -fx-font-size: 14px;"/>
+
+    <Label text="Immatriculation:" layoutX="10" layoutY="430" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #333;"/>
+    <TextField fx:id="immatriculationField" promptText="Entrez l'immatriculation" layoutX="150" layoutY="425" prefWidth="200"
+               style="-fx-background-color: #ffffff; -fx-border-color: #ccc; -fx-border-radius: 5px; -fx-padding: 10px; -fx-font-size: 14px;"/>
+
+    <!-- Bouton Ajouter voiture avec effet hover -->
+    <Button text="Ajouter la voiture" layoutX="10" layoutY="470" onAction="#ajouterVoiture"
+            style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-border-radius: 5px; -fx-font-size: 14px; -fx-padding: 10px 20px; -fx-cursor: hand; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0.0, 2, 2);">
+        <style>
+            .button:hover {
+                -fx-background-color: #45a049;  /* Vert plus foncé au survol */
+                -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0.0, 2, 2); /* Ombre plus marquée */
+            }
+        </style>
+    </Button>
+</AnchorPane>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="Controlleurs.SupprimerFournitureClientController">
+    <GridPane alignment="CENTER" hgap="15" vgap="15" fx:id="gridPane" style="-fx-padding: 20px; -fx-background-color: #f5f5f5;">
+        <!-- ComboBox for Clients -->
+        <Label text="Sélectionner un client:" GridPane.rowIndex="0" GridPane.columnIndex="0" 
+               style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #333333;"/>
+        <ComboBox fx:id="comboBoxClients" onAction="#onClientSelectionChange" GridPane.rowIndex="0" GridPane.columnIndex="1" prefWidth="250" 
+                  style="-fx-font-size: 14px; -fx-padding: 5px; -fx-background-color: #ffffff; -fx-border-radius: 5px; -fx-border-color: #cccccc; -fx-border-width: 1px;"/>
+
+        <!-- Table for displaying fournitures -->
+        <Label text="Fournitures du client:" GridPane.rowIndex="1" GridPane.columnIndex="0" 
+               style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #333333;"/>
+        <TableView fx:id="tableViewFournitures" GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.columnSpan="2" prefHeight="250" 
+                   style="-fx-background-color: #ffffff; -fx-border-color: #cccccc; -fx-border-width: 1px; -fx-border-radius: 5px; -fx-font-size: 14px;">
+            <columns>
+                <TableColumn fx:id="colNomFourniture" text="Nom">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="nom"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="colDescriptionFourniture" text="Description">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="description"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="colPrixFourniture" text="Prix">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="prix"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="colQuantiteFourniture" text="Quantité">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="quantiteStock"/>
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+
+        <!-- Button to delete the selected supply -->
+        <Button text="Supprimer Fourniture" onAction="#supprimerFourniture" GridPane.rowIndex="3" GridPane.columnIndex="0" prefWidth="180" 
+                style="-fx-background-color: #009688; -fx-text-fill: #ffffff; -fx-font-size: 14px; -fx-font-weight: bold; -fx-padding: 10px; -fx-border-radius: 5px; -fx-cursor: hand;"/>
+        
+        <!-- Close button -->
+        <Button text="Fermer" onAction="#fermerFormulaire" GridPane.rowIndex="3" GridPane.columnIndex="1" prefWidth="180" 
+                style="-fx-background-color: #e0e0e0; -fx-text-fill: #333333; -fx-font-size: 14px; -fx-font-weight: bold; -fx-padding: 10px; -fx-border-radius: 5px; -fx-cursor: hand;"/>
+    </GridPane>
+</AnchorPane>

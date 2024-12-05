@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<VBox spacing="10" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlleurs.AjouterFournitureClientController" 
+      style="-fx-background-color: #f5f5f5; -fx-padding: 20px; -fx-alignment: center;">
+    
+    <Label text="Sélectionner un client" 
+           style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #333333;"/>
+    
+    <ComboBox fx:id="clientComboBox" prefWidth="200" 
+              style="-fx-font-size: 14px; -fx-padding: 5px; -fx-background-color: #ffffff; -fx-border-radius: 5px; 
+                     -fx-border-color: #cccccc; -fx-border-width: 1px;"/>
+
+    <Label text="Sélectionner une fourniture" 
+           style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #333333;"/>
+    
+    <TableView fx:id="fournitureTableView" prefHeight="200" prefWidth="400" 
+               style="-fx-background-color: #ffffff; -fx-border-color: #cccccc; -fx-border-width: 1px; 
+                      -fx-border-radius: 5px; -fx-font-size: 14px;">
+        <columns>
+            <TableColumn fx:id="nomColumn" text="Nom" prefWidth="150"/>
+            <TableColumn fx:id="descriptionColumn" text="Description" prefWidth="150"/>
+            <TableColumn fx:id="prixColumn" text="Prix" prefWidth="100"/>
+            <!-- Nouvelle colonne pour la quantité en stock -->
+            <TableColumn fx:id="quantiteColumn" text="Quantité en Stock" prefWidth="100"/>
+        </columns>
+    </TableView>
+
+    <Button text="Ajouter Fourniture au Client" onAction="#ajouterFournitureClient" 
+            style="-fx-background-color: #009688; -fx-text-fill: #ffffff; -fx-font-size: 14px; 
+                   -fx-font-weight: bold; -fx-padding: 10px 20px; -fx-border-radius: 5px; -fx-cursor: hand;"/>
+</VBox>

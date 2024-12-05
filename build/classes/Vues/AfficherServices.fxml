@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="Controlleurs.AfficherServicesController" spacing="10">
+    <Label text="Liste des Services" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+
+    <TableView fx:id="tableViewServices">
+        <columns>
+            <TableColumn fx:id="colRendezVous" text="Rendez-vous" prefWidth="200" />
+            <TableColumn fx:id="colTypeService" text="Type de Service" prefWidth="150" />
+            <TableColumn fx:id="colPieceRechange" text="Pièces de Rechange" prefWidth="200" />
+            <TableColumn fx:id="colEmploye" text="Employé" prefWidth="150" />
+            <TableColumn fx:id="colCout" text="Coût (€)" prefWidth="100" />
+        </columns>
+    </TableView>
+
+    <Button text="Fermer" onAction="#fermer" />
+</VBox>

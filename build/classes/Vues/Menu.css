@@ -1,0 +1,51 @@
+/* Style pour le titre avec un trait sous */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+
+/* Style pour les boutons */
+.menu-button {
+    -fx-font-size: 18px;
+    -fx-background-color: linear-gradient(to right, #2C3E50, #34495E);
+    -fx-text-fill: white;
+    -fx-padding: 15px 30px;
+    -fx-border-radius: 30px;
+    -fx-background-radius: 30px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 10, 0.5, 0, 5);
+    -fx-cursor: hand;
+    -fx-transition: all 0.3s ease;
+}
+
+/* Hover effect pour les boutons */
+.menu-button:hover {
+    -fx-background-color: linear-gradient(to right, #34495e, #2c3e50);
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+/* Focused state for buttons */
+.menu-button:focused {
+    -fx-background-color: linear-gradient(to right, #1a2c37, #1f3c49);
+}
+/* Style du titre "Menu Principal" */
+/* Style du titre "Menu Principal" */
+/* Style du titre "Menu Principal" */
+.menu-title {
+    -fx-font-size: 32px; 
+    -fx-font-family: "Roboto Slab", serif; /* Use Roboto Slab for a professional look */
+    -fx-font-weight: bold;
+    -fx-text-fill: #1a2d3f; /* Darker color */
+    -fx-text-alignment: center;
+    -fx-line-spacing: 5px;
+    -fx-padding-bottom: 10px; 
+    -fx-padding-top: 20px; 
+}
+
+
+
+/* Ligne décorative sous le titre */
+.line {
+    -fx-stroke: #1a2d3f; /* Couleur plus foncée pour la ligne */
+    -fx-stroke-width: 3;  /* Un peu plus épais pour la ligne */
+    -fx-opacity: 1; /* Pleine opacité */
+}

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="Controlleurs.FormulaireModificationFournitureController"
+      stylesheets="@ModifierStyles.css"
+      spacing="15" alignment="CENTER">
+    <Label text="Modifier les informations de la fourniture" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+
+    <HBox spacing="15">
+        <Label text="Nom :" />
+        <TextField fx:id="textFieldNom" />
+    </HBox>
+
+    <HBox spacing="15">
+        <Label text="Description :" />
+        <TextField fx:id="textFieldDescription" />
+    </HBox>
+
+    <HBox spacing="15">
+        <Label text="Prix :" />
+        <TextField fx:id="textFieldPrix" />
+    </HBox>
+
+    <HBox spacing="15">
+        <Label text="Quantité :" />
+        <TextField fx:id="textFieldQuantite" />
+    </HBox>
+
+    <HBox spacing="20" alignment="CENTER">
+        <Button text="Enregistrer" onAction="#enregistrerModifications" />
+        <Button text="Annuler" onAction="#fermerFormulaire" style="-fx-background-color: #cccccc; -fx-text-fill: black;" />
+    </HBox>
+</VBox>

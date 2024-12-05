@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="Controlleurs.AfficherPieceRechangeController" spacing="10" alignment="CENTER" style="-fx-padding: 20px;">
+    <TableView fx:id="tablePiecesRechange" prefHeight="300" prefWidth="500">
+        <columns>
+            <TableColumn fx:id="colID" text="ID" />
+            <TableColumn fx:id="colNom" text="Nom" />
+            <TableColumn fx:id="colDescription" text="Description" />
+            <TableColumn fx:id="colPrix" text="Prix" />
+            <TableColumn fx:id="colQuantite" text="Quantité" />
+            <TableColumn fx:id="colActions" text="Actions"/> <!-- Colonne pour les boutons Modifier/Supprimer -->
+        </columns>
+    </TableView>
+</VBox>

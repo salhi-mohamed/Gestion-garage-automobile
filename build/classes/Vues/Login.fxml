@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<StackPane prefHeight="600.0" prefWidth="800.0" style="-fx-alignment: center; -fx-background-color: linear-gradient(to bottom, #1c1c1c, #434343);" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlleurs.LoginController">
+    <!-- Conception principale -->
+    <HBox alignment="CENTER" prefHeight="600.0" prefWidth="800.0" spacing="0">
+
+        <!-- Section de gauche : Image et branding -->
+        <StackPane prefWidth="400.0" style="-fx-background-color: linear-gradient(to top, #1c1c1c, #2c3e50);">
+            <ImageView fitHeight="300.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <!-- Remplacez ce chemin par une image pertinente (logo, véhicule, etc.) -->
+                    <Image url="@/Images/Logo.jpg"> </Image>
+                </image>
+            </ImageView>
+            <Text style="-fx-font-size: 22px; -fx-font-family: 'Roboto'; -fx-font-weight: bold; -fx-fill: white; -fx-effect: dropshadow(gaussian, black, 10, 0.5, 0, 4);" />
+        </StackPane>
+
+        <!-- Section de droite : Formulaire -->
+        <VBox alignment="CENTER" spacing="20" style="-fx-background-color: #f4f4f4; -fx-padding: 40px; -fx-background-radius: 0 10 10 0;">
+
+            <!-- Titre -->
+            <Text style="-fx-font-size: 28px; -fx-font-family: 'Roboto'; -fx-font-weight: bold; -fx-fill: #2c3e50;" text="Connexion" />
+
+            <!-- Champ email -->
+            <TextField fx:id="emailField" prefWidth="280" promptText="Email" style="-fx-background-color: #eaeaea; -fx-border-color: #bdc3c7; -fx-border-radius: 25px; -fx-background-radius: 25px; -fx-padding: 10px 15px; -fx-font-size: 14px;" />
+
+            <!-- Champ mot de passe -->
+            <PasswordField fx:id="passwordField" prefWidth="280" promptText="Mot de passe" style="-fx-background-color: #eaeaea; -fx-border-color: #bdc3c7; -fx-border-radius: 25px; -fx-background-radius: 25px; -fx-padding: 10px 15px; -fx-font-size: 14px;" />
+
+            <!-- Bouton connexion -->
+            <Button fx:id="loginButton" onAction="#handleLogin" prefWidth="280" style="-fx-font-size: 16px; -fx-background-color: #3498db; -fx-text-fill: white; -fx-padding: 10px 0; -fx-border-radius: 25px; -fx-background-radius: 25px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 3, 0, 5);" text="Se connecter" />
+
+            <!-- Lien mot de passe oublié -->
+            <Text onMouseClicked="#handleForgotPassword" style="-fx-font-size: 14px; -fx-fill: #3498db; -fx-underline: true; -fx-cursor: hand;" text="Mot de passe oublié ?" />
+
+        </VBox>
+    </HBox>
+</StackPane>

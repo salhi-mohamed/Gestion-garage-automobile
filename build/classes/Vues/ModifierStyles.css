@@ -1,0 +1,75 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 23 Nov 2024, 13:02:20
+    Author     : LENOVO
+*/
+
+/* style.css */
+.root {
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-padding: 20;
+    -fx-background-color: #f4f4f4; /* Fond clair */
+}
+
+.label {
+    -fx-font-size: 16px;
+    -fx-text-fill: #333333; /* Couleur sombre pour le texte */
+}
+
+.table-view {
+    -fx-border-color: #d0d0d0;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-background-color: #ffffff;
+    -fx-table-header-border-color: #e0e0e0;
+}
+
+.table-view .column-header {
+    -fx-background-color: #eeeeee;
+    -fx-border-color: transparent transparent #d0d0d0 transparent;
+    -fx-font-weight: bold;
+}
+
+.text-field {
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 5 10;
+    -fx-border-color: #cccccc;
+    -fx-background-color: #ffffff;
+}
+
+.text-field:focused {
+    -fx-border-color: #0078d7; /* Bleu moderne */
+}
+
+.button {
+    -fx-background-color: #0078d7;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 8 15;
+}
+
+.button:hover {
+    -fx-background-color: #005a9e;
+}
+
+.button:pressed {
+    -fx-background-color: #003865;
+}
+
+.hbox {
+    -fx-spacing: 10;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.vbox {
+    -fx-spacing: 15;
+    -fx-alignment: CENTER;
+}
+

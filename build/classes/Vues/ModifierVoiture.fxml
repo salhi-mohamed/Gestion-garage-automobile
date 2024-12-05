@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="Controlleurs.ModifierVoitureController"
+      stylesheets="@ModifierStyles.css"
+      spacing="20" alignment="CENTER" style="-fx-padding: 20;">
+    <Label text="Liste des Clients - Modification" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+
+    <TableView fx:id="tableViewVoitures" style="-fx-pref-height: 300;">
+        <columns>
+               <TableColumn fx:id="columnImmatriculation" text="Immatriculation" />
+
+            <TableColumn fx:id="columnMarque" text="Marque" />
+            <TableColumn fx:id="columnModele" text="Modèle" />
+            <TableColumn fx:id="columnKilometrage" text="Année" />
+        </columns>
+    </TableView>
+
+    <HBox spacing="20" alignment="CENTER">
+        <Button text="Modifier la voiture" fx:id="buttonModifier" onAction="#ouvrirFormulaireModification" />
+    </HBox>
+</VBox>
+
