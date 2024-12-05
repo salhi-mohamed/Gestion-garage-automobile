@@ -34,7 +34,6 @@ public class AfficherEmployesController {
     @FXML
     private TableColumn<Employe, String> colActions;
 
-    // TableView pour afficher les voitures associées
     @FXML
     private TableView<Voiture> tableVoitures;
     @FXML
@@ -44,7 +43,6 @@ public class AfficherEmployesController {
     @FXML
     private TableColumn<Voiture, String> colImmatriculation;
 
-    // TableView pour afficher l'équipe du chef
     @FXML
     private TableView<Employe> tableEquipe;
     @FXML
@@ -62,54 +60,42 @@ public class AfficherEmployesController {
             initialiserColonnes();
             afficherEmployes(receptionniste);
 
-            // Ajouter un écouteur pour détecter la sélection d'un employé
             tableEmployes.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-                afficherVoituresEmploye(newValue); // Afficher les voitures et l'équipe si c'est un chef
+                afficherVoituresEmploye(newValue);
             });
         }
     }
 
-    // Méthode pour afficher les employés dans le TableView
     private void afficherEmployes(Receptionniste receptionniste) {
         tableEmployes.getItems().clear();
         tableEmployes.getItems().addAll(receptionniste.getListeEmployes());
     }
 
-    // Méthode pour afficher les voitures et l'équipe d'un employé sélectionné
     private void afficherVoituresEmploye(Employe employe) {
-        tableVoitures.getItems().clear(); // Effacer les anciennes données
-        tableEquipe.getItems().clear(); // Effacer les anciennes données de l'équipe
+        tableVoitures.getItems().clear();
+        tableEquipe.getItems().clear();
 
         if (employe == null) {
             return;
         }
 
-        // Si l'employé est un Mécanicien
         if (employe instanceof Mecanicien) {
             Mecanicien mecanicien = (Mecanicien) employe;
             tableVoitures.getItems().addAll(mecanicien.get_historique_voitures());
-        }
-        // Si l'employé est un Laveur
-        else if (employe instanceof Laveur) {
+        } else if (employe instanceof Laveur) {
             Laveur laveur = (Laveur) employe;
             tableVoitures.getItems().addAll(laveur.getVoitures());
-        }
-        // Si l'employé est un Chef
-        else if (employe instanceof Chef) {
+        } else if (employe instanceof Chef) {
             Chef chef = (Chef) employe;
-            // Afficher l'équipe du chef
             tableEquipe.getItems().addAll(chef.getEquipe());
         }
     }
 
-    // Initialiser les colonnes pour les employés et l'équipe du chef
     private void initialiserColonnes() {
-        // Colonnes des employés
         colID.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().get_id()).asObject());
         colNom.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().get_nom()));
         colPrenom.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().get_prenom()));
 
-        // Type d'employé (Mécanicien, Laveur, Chef)
         colType.setCellValueFactory(cellData -> {
             Employe employe = cellData.getValue();
             if (employe instanceof Mecanicien) return new SimpleStringProperty("Mécanicien");
@@ -118,7 +104,6 @@ public class AfficherEmployesController {
             return new SimpleStringProperty("Inconnu");
         });
 
-        // Spécialité (Laveur ou Mécanicien)
         colSpecialite.setCellValueFactory(cellData -> {
             Employe employe = cellData.getValue();
             if (employe instanceof Laveur) {
@@ -134,7 +119,6 @@ public class AfficherEmployesController {
             return new SimpleStringProperty("-");
         });
 
-        // Expertise (seulement pour Mécanicien)
         colExpertise.setCellValueFactory(cellData -> {
             Employe employe = cellData.getValue();
             if (employe instanceof Mecanicien) {
@@ -144,42 +128,43 @@ public class AfficherEmployesController {
             return new SimpleStringProperty("-");
         });
 
-        // Colonne Salaire
         colSalaire.setCellValueFactory(cellData -> {
             Employe employe = cellData.getValue();
-            return new SimpleStringProperty(String.format("%.2f", employe.getSalaire())); // Affichage du salaire avec deux décimales
+            return new SimpleStringProperty(String.format("%.2f", employe.getSalaire()));
         });
 
-        // Colonne d'actions
-        colActions.setCellFactory(column -> new TableCell<Employe, String>() {
-            @Override
-            protected void updateItem(String item, boolean empty) {
-                super.updateItem(item, empty);
+       colActions.setCellFactory(column -> new TableCell<Employe, String>() {
+    @Override
+    protected void updateItem(String item, boolean empty) {
+        super.updateItem(item, empty);
 
-                if (empty) {
-                    setGraphic(null);
-                } else {
-                    HBox actionBox = new HBox(10);
-                    Button btnModifier = new Button("Modifier");
-                    Button btnSupprimer = new Button("Supprimer");
+        if (empty) {
+            setGraphic(null);
+        } else {
+            HBox actionBox = new HBox(10);
+            Button btnModifier = new Button("Modifier");
+            Button btnSupprimer = new Button("Supprimer");
 
-                    btnModifier.setOnAction(e -> {
-                        Employe employe = getTableView().getItems().get(getIndex());
-                        modifierEmploye(employe);
-                    });
+            // Style du bouton Modifier
+            btnModifier.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-padding: 10px; -fx-border-radius: 5px; -fx-font-size: 14px;");
+            btnModifier.setOnAction(e -> {
+                Employe employe = getTableView().getItems().get(getIndex());
+                modifierEmploye(employe);
+            });
 
-                    btnSupprimer.setOnAction(e -> {
-                        Employe employe = getTableView().getItems().get(getIndex());
-                        supprimerEmploye(employe);
-                    });
+            // Style du bouton Supprimer
+            btnSupprimer.setStyle("-fx-background-color: #F44336; -fx-text-fill: white; -fx-padding: 10px; -fx-border-radius: 5px; -fx-font-size: 14px;");
+            btnSupprimer.setOnAction(e -> {
+                Employe employe = getTableView().getItems().get(getIndex());
+                supprimerEmploye(employe);
+            });
 
-                    actionBox.getChildren().addAll(btnModifier, btnSupprimer);
-                    setGraphic(actionBox);
-                }
-            }
-        });
+            actionBox.getChildren().addAll(btnModifier, btnSupprimer);
+            setGraphic(actionBox);
+        }
+    }
+});
 
-        // Colonnes de l'équipe du chef
         colEquipeNom.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().get_nom()));
         colEquipePrenom.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().get_prenom()));
         colEquipeRole.setCellValueFactory(cellData -> {
@@ -190,12 +175,6 @@ public class AfficherEmployesController {
             return new SimpleStringProperty("Inconnu");
         });
 
-        // Colonnes des voitures
-        colModele.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getModele()));
-        colMarque.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getMarque()));
-        colImmatriculation.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getImmatriculation()));
-
-        // Colonne de suppression dans la table de l'équipe du chef
         TableColumn<Employe, String> colActionsEquipe = new TableColumn<>("Actions");
         colActionsEquipe.setCellFactory(column -> new TableCell<Employe, String>() {
             @Override
@@ -205,6 +184,8 @@ public class AfficherEmployesController {
                     setGraphic(null);
                 } else {
                     Button btnSupprimerEquipe = new Button("Supprimer");
+
+                    btnSupprimerEquipe.setStyle("-fx-background-color: #FF5722; -fx-text-fill: white; -fx-padding: 5 10; -fx-font-size: 14px;");
                     btnSupprimerEquipe.setOnAction(e -> {
                         Employe employe = getTableView().getItems().get(getIndex());
                         supprimerEmployeDeLEquipe(employe);
@@ -216,25 +197,24 @@ public class AfficherEmployesController {
         tableEquipe.getColumns().add(colActionsEquipe);
     }
 
-   private void modifierEmploye(Employe employe) {
-    try {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Vues/ModifierEmploye.fxml"));
-        Parent root = loader.load();
+    private void modifierEmploye(Employe employe) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Vues/ModifierEmploye.fxml"));
+            Parent root = loader.load();
 
-        ModifierEmployeController controller = loader.getController();
-        controller.setEmployeAModifier(employe);
+            ModifierEmployeController controller = loader.getController();
+            controller.setEmployeAModifier(employe);
 
-        Stage stage = new Stage();
-        stage.setTitle("Modifier Employé");
-        stage.setScene(new Scene(root));
-        stage.showAndWait();
+            Stage stage = new Stage();
+            stage.setTitle("Modifier Employé");
+            stage.setScene(new Scene(root));
+            stage.showAndWait();
 
-        tableEmployes.refresh(); // Rafraîchir les données après modification
-    } catch (IOException e) {
-        e.printStackTrace();
+            tableEmployes.refresh(); 
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
-}
-
 
     private void supprimerEmploye(Employe employe) {
         Receptionniste receptionniste = MenuPrincipaleController.receptionnisteConnecte;
@@ -244,25 +224,22 @@ public class AfficherEmployesController {
         }
     }
 
-    // Méthode pour supprimer un employé de l'équipe d'un chef
     private void supprimerEmployeDeLEquipe(Employe employe) {
         Chef chef = (Chef) tableEmployes.getSelectionModel().getSelectedItem();
         if (chef != null) {
-            chef.getEquipe().remove(employe); // Retirer l'employé de l'équipe du chef
-            tableEquipe.getItems().remove(employe); // Mettre à jour la table d'équipe
+            chef.getEquipe().remove(employe);
+            tableEquipe.getItems().remove(employe);
         }
     }
 
-    // Méthode pour gérer la sélection d'un employé
     @FXML
     public void onEmployeSelected() {
         Employe selectedEmploye = tableEmployes.getSelectionModel().getSelectedItem();
         if (selectedEmploye != null) {
-            afficherVoituresEmploye(selectedEmploye); // Afficher les voitures et l'équipe si c'est un chef
+            afficherVoituresEmploye(selectedEmploye);
         }
     }
 
-    // Pour fermer la fenêtre
     @FXML
     private void fermerFenetre() {
         Stage stage = (Stage) tableEmployes.getScene().getWindow();
